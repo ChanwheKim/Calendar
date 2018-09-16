@@ -42,7 +42,7 @@ var UIcontroller = (function() {
                     html += '</tr>'
                 }
             }
-            debugger;
+            
             // 6. Insert HTML strings into the DOM
             document.querySelector('.calendar__frame--days').innerHTML = html;
 
@@ -60,11 +60,19 @@ var UIcontroller = (function() {
 
 var calController = (function(UIctrl) {
 
-    
+    var setupEventListener = function() {
+        document.getElementById('prev').addEventListener('click', ctrlAddMonth);
+        document.getElementById('next').addEventListener('click', ctrlAddMonth);
+    };
+
+    var ctrlAddMonth = function() {
+        console.log('It works!');
+    };
 
     return {
         init: function() {
-            UIctrl.displayDates(new Date().getMonth(), new Date().getFullYear())
+            UIctrl.displayDates(new Date().getMonth(), new Date().getFullYear());
+            setupEventListener();
         }
     }
 
