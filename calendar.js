@@ -52,6 +52,10 @@ var UIcontroller = (function() {
             // Update data of month and year
             currentMonth = curMonth;
             currentYear = curYear;
+        },
+
+        deleteElements: function() {
+            document.querySelector('.calendar__frame--days').innerHTML = '';
         }
     }
 
@@ -66,7 +70,20 @@ var calController = (function(UIctrl) {
     };
 
     var ctrlAddMonth = function() {
-        console.log('It works!');
+        var year, month, timeInfo;
+
+        // 1. delete existing calendar
+        UIctrl.deleteElements();
+
+        // 2. get time data
+
+
+        // 3. calculate month and year
+
+
+        // 4. display calendar
+        
+        
     };
 
     return {
