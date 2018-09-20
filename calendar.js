@@ -56,6 +56,13 @@ var UIcontroller = (function() {
 
         deleteElements: function() {
             document.querySelector('.calendar__frame--days').innerHTML = '';
+        },
+
+        getTimeInfo: function() {
+            return {
+                currentMonth: currentMonth,
+                currentYear : currentYear
+            }
         }
     }
 
@@ -76,7 +83,9 @@ var calController = (function(UIctrl) {
         UIctrl.deleteElements();
 
         // 2. get time data
-
+        timeInfo = UIctrl.getTimeInfo();
+        year = timeInfo.currentYear;
+        month = timeInfo.currentMonth;
 
         // 3. calculate month and year
 
