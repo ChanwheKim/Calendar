@@ -75,10 +75,10 @@ var calController = (function(UIctrl) {
         document.getElementById('prev').addEventListener('click', ctrlAddMonth);
         document.getElementById('next').addEventListener('click', ctrlAddMonth);
     };
-
-    var ctrlAddMonth = function() {
+    
+    var ctrlAddMonth = function(e) {
         var year, month, timeInfo;
-
+        
         // 1. delete existing calendar
         UIctrl.deleteElements();
 
@@ -86,13 +86,19 @@ var calController = (function(UIctrl) {
         timeInfo = UIctrl.getTimeInfo();
         year = timeInfo.currentYear;
         month = timeInfo.currentMonth;
-
+        
         // 3. calculate month and year
-
-
+        if(e.target.id === 'prev') {
+            if(month === 0) { month = 11; year -= 1;} 
+            else { month -= 1;}
+        } else if(e.target.id === 'next') {
+            if(month === 11) { month = 0; year += 1;}
+            else { month += 1;}
+        }
+        
         // 4. display calendar
-        
-        
+        UIctrl.displayDates(month, year);
+            
     };
 
     return {
