@@ -1,6 +1,6 @@
 ## Calendar
-<p style='text-align: center;'>
-<img src='screen-shot.png' width='50%'>
+<p align='center'>
+<img width='50%' src='screen-shot.png'>
 </p>
 <br>
 As you might know, this is a modern calendar that I made. :)
