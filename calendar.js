@@ -54,6 +54,17 @@ var UIcontroller = (function() {
             currentYear = curYear;
         },
 
+        displayFocus: function() {
+            var days = document.querySelectorAll('.calendar__frame--days td');
+            for(var i = 0; i < days.length; i++) {
+                if(days[i].textContent === new Date().getDay().toString()) {
+                    if(days[i].classList.length === 0) {
+                        days[i].classList.add('selected')
+                    }
+                }
+            }
+        },
+
         deleteElements: function() {
             document.querySelector('.calendar__frame--days').innerHTML = '';
         },
@@ -105,6 +116,7 @@ var calController = (function(UIctrl) {
         init: function() {
             UIctrl.displayDates(new Date().getMonth(), new Date().getFullYear());
             setupEventListener();
+            UIctrl.displayFocus();
         }
     }
 
